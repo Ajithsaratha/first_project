@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+</head>
+<style>
+    body{
+        padding: 40%;
+        padding-top: 1%;
+    }
+     fieldset{
+            background-color: aqua;
+            border-radius: 35px;
+            text-align: center;
+           
+        }
+        input{
+            border: 5px solid black;
+            border-radius: 5px;
+        }
+        select{
+            border: 5px solid black;
+            border-radius: 12px; 
+        }
+        button{
+            color:white;
+            background-color: green;
+            
+        }
+     
+</style>
+<body>
+  <fieldset>
+    <h1>Calculator</h1>
+
+    <form action="{% url 'fun' %} " method="POST">
+        {% csrf_token %}
+        <label for="">First number:</label>
+        <input name="number1" type="number">
+        <br>
+        <br>
+        <label for="">Second number:</label>
+        <input name="number2" type="number">
+        <br>
+        <br>
+        <label for="">Select Operator:</label>
+        <br>
+        <select name="operations" id="">
+            <option value="Addition">Addition</option>
+            <option value="Subtraction">Subtraction</option>
+            <option value="Multiplication">Multiplication</option>
+            <option value="Division">Division</option>
+            </select>
+            <br>
+            <br>
+            <label for="">Answer:</label>
+            <br>
+            <input name="result" value='{{answer}}' type="number">
+            <br>
+            <br>
+            <button type="submit" >Submit</button>
+            <button type="reset">Reset</button>
+     </form>
+  </fieldset>
+</body>
+</html>
